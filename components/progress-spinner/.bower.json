@@ -19,15 +19,14 @@
     "iron-component-page": "2.0-preview",
     "iron-demo-helpers": "2.0-preview"
   },
-  "version": "0.1.1",
-  "_release": "0.1.1",
+  "version": "0.1.2",
+  "_release": "0.1.2",
   "_resolution": {
     "type": "version",
-    "tag": "0.1.1",
-    "commit": "6af7a33c1d5176383d67c4774f41b7cfebb83a61"
+    "tag": "0.1.2",
+    "commit": "9d63feaf1ffae73a79a7460f6d34ffac7e22b987"
   },
   "_source": "https://github.com/Juravenator/progress-spinner.git",
   "_target": "^0.1.1",
-  "_originalSource": "progress-spinner",
-  "_direct": true
+  "_originalSource": "progress-spinner"
 }
