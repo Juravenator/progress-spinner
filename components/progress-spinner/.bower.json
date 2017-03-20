@@ -1,0 +1,33 @@
+{
+  "name": "progress-spinner",
+  "authors": [
+    "Glenn Dirkx <glenn.dirkx@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "https://github.com/Juravenator/progress-spinner",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "2.0.0-rc.3",
+    "iron-component-page": "2.0-preview",
+    "iron-demo-helpers": "2.0-preview"
+  },
+  "version": "0.1.1",
+  "_release": "0.1.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.1",
+    "commit": "6af7a33c1d5176383d67c4774f41b7cfebb83a61"
+  },
+  "_source": "https://github.com/Juravenator/progress-spinner.git",
+  "_target": "^0.1.1",
+  "_originalSource": "progress-spinner",
+  "_direct": true
+}

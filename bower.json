@@ -1,12 +1,12 @@
 {
-  "name": "circular-loader",
+  "name": "progress-spinner-demo",
+  "homepage": "https://github.com/Juravenator/progress-spinner",
   "authors": [
     "Glenn Dirkx <glenn.dirkx@gmail.com>"
   ],
   "description": "",
   "main": "",
   "license": "MIT",
-  "homepage": "",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -15,8 +15,6 @@
     "tests"
   ],
   "dependencies": {
-    "polymer": "2.0.0-rc.3",
-    "iron-component-page": "2.0-preview",
-    "iron-demo-helpers": "2.0-preview"
+    "progress-spinner": "^0.1.1"
   }
 }
