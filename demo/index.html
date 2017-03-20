@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>paper-dropdown-input demo</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+
+  <script>
+    window.Polymer = window.Polymer || {};
+    window.Polymer.dom = 'shadow';
+  </script>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+  <script src="../bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+
+  <link rel="import" href="../progress-spinner.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../bower_components/iron-demo-helpers/demo-snippet.html">
+</head>
+
+<body unresolved>
+  <demo-snippet>
+    <template>
+      <progress-spinner active></progress-spinner>
+    </template>
+  </demo-snippet>
+  <demo-snippet>
+    <template>
+      <style>
+        progress-spinner[pink] {
+          --spinner-color: pink;
+        }
+      </style>
+      <progress-spinner active pink></progress-spinner>
+    </template>
+  </demo-snippet>
+  <demo-snippet>
+    <template>
+      <progress-spinner active progress=0></progress-spinner>
+      <progress-spinner active progress=.1></progress-spinner>
+      <progress-spinner active progress=.2></progress-spinner>
+      <progress-spinner active progress=.3></progress-spinner>
+      <progress-spinner active progress=.4></progress-spinner>
+      <progress-spinner active progress=.5></progress-spinner>
+      <progress-spinner active progress=.6></progress-spinner>
+      <progress-spinner active progress=.7></progress-spinner>
+      <progress-spinner active progress=.8></progress-spinner>
+      <progress-spinner active progress=.9></progress-spinner>
+      <progress-spinner active progress=1></progress-spinner>
+    </template>
+  </demo-snippet>
+</body>
+
+</html>

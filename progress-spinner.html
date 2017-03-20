@@ -1,0 +1,158 @@
+<link rel="import" href="/bower_components/polymer/polymer-element.html">
+
+<!--
+`<progress-spinner>` implements a material design inspired spinner that also
+supports displaying progress.
+
+Example:
+
+    <progress-spinner active></progress-spinner>
+    <progress-spinner active progress=0></progress-spinner>
+    <progress-spinner active progress=.7></progress-spinner>
+
+### Styling
+The following custom properties are available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--spinner-color` | Color or the spinner | `--primary-color`, `#2196F3`
+
+@demo
+-->
+<dom-module id="progress-spinner">
+  <template>
+    <style>
+      :host {
+        display: inline-block;
+        transition: opacity 500ms linear;
+      }
+      :host(:not([active])) {
+        opacity: 0;
+      }
+
+      circle {
+        stroke: var(--spinner-color, var(--primary-color, #2196F3));
+        border: 12px solid red;
+        transition: stroke-dashoffset 800ms linear;
+        fill: transparent;
+      }
+      svg {
+        animation: spin 1s infinite linear;
+        transform-origin: 50% 50%;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <svg id="svg">
+      <circle id="circle"></circle>
+    </svg>
+
+  </template>
+  <script>
+    class circularLoader extends Polymer.Element {
+      static get is() { return 'progress-spinner' }
+      static get properties() {
+        return {
+          /**
+           * width and height of this element
+           */
+          size: {
+            type: Number,
+            value: 40
+          },
+          /**
+           * size of the circular progress bar
+           */
+          barSize: {
+            type: Number,
+            value: 3
+          },
+          /**
+           * progress as a number between 0 and 1
+           */
+          progress: {
+            type: Number,
+            value: 0
+          },
+          /**
+           * displays the spinner
+           */
+          active: {
+            type: Boolean,
+            reflectToAttribute: true,
+            value: false,
+            observer: "_activeChanged"
+          },
+        };
+      }
+      static get observers() {
+        return [
+          "_inputChanged(active, progress, size, barSize)"
+        ];
+      }
+
+      _activeChanged(active) {
+        if (active) {
+          this.removeAttribute('aria-hidden');
+        }
+        else {
+          setTimeout(function () {
+            this.setAttribute('aria-hidden', 'true');
+          }.bind(this), 500);
+        }
+      }
+
+      disconnectedCallback() {
+        clearInterval(this.__animation);
+      }
+
+      _inputChanged(active, progress, size, barSize) {
+        if (!active) {
+          progress = 0;
+        }
+        var diameter = size - 2*barSize;
+        var circumference = diameter*Math.PI;
+
+        this.$.svg.style.height = this.$.svg.style.width = size + "px";
+        this.$.circle.style.strokeWidth = barSize + "px";
+        this.$.circle.setAttribute('r', diameter/2 + "px");
+        var halfsize = size/2 + "px";
+        this.$.circle.setAttribute('cx', halfsize);
+        this.$.circle.setAttribute('cy', halfsize);
+
+        if (progress == 0) {
+          progress = .3;
+          this.__animateSmall = false;
+          this.__animation = setInterval(function () {
+            if (this.__animateSmall) {
+              this.$.circle.style.strokeDashoffset = circumference*(1-.3) + "px";
+            }
+            else {
+              this.$.circle.style.strokeDashoffset = circumference*(1-.7) + "px";
+            }
+            this.__animateSmall = !this.__animateSmall;
+          }.bind(this), 1000);
+        }
+        else {
+          clearInterval(this.__animation);
+          if (progress < 0) {
+            progress = 0;
+          }
+          else if (progress > 1) {
+            progress = 1;
+          }
+        }
+        this.$.circle.style.strokeDasharray = circumference + "px";
+        this.$.circle.style.strokeDashoffset = circumference*(1-progress) + "px";
+      }
+    }
+    customElements.define(circularLoader.is, circularLoader);
+  </script>
+</dom-module>
