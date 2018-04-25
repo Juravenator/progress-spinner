@@ -1,3 +1,7 @@
+[![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/Juravenatorprogress-spinner)
+[![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/Juravenatorprogress-spinner.svg)](https://vaadin.com/directory/component/Juravenatorprogress-spinner)
+
+
 # progress-spinner
 a material design inspired spinner for Polymer 2 that also supports progress indication
 
